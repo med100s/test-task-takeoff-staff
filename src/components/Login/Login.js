@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 
-const Login = () => <Form/>;
+
+const Login = () => <div><Form directory="register" method="POST"/><Form directory="login" method="POST"/></div>;
+
 
 
 class Form extends React.Component {
@@ -12,7 +14,8 @@ class Form extends React.Component {
       this.handleChange2 = this.handleChange2.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
     }
-  
+    
+
     handleChange(event) {
         this.setState({value: event.target.value});
     }
@@ -22,7 +25,7 @@ class Form extends React.Component {
     handleSubmit(event) {
       alert('Отправленное имя: ' + this.state.value + ' ' + this.state.value2);var url = "https://reqbin.com/echo/post/json";
 
-      var url = " http://localhost:3000/register";
+      var url = `http://localhost:3000/${this.props.directory}`;
 
       var xhr = new XMLHttpRequest();
       xhr.open("POST", url);
@@ -31,10 +34,11 @@ class Form extends React.Component {
       xhr.setRequestHeader("Content-Type", "application/json");
       
       xhr.onreadystatechange = function () {
-         if (xhr.readyState === 4) {
-            console.log(xhr.status);
-            console.log(xhr.responseText);
-         }};
+        if (xhr.readyState === 4) {
+          console.log(xhr.status);
+          console.log(xhr.responseText);
+          localStorage.setItem('logInData', xhr.responseText);
+        }};
       
       var data = `{
         "email": "${this.state.value}",

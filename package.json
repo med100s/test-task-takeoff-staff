@@ -2,6 +2,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "Get started with React with code splitting!",
+  "javascript.implicitProjectConfig.experimentalDecorators": true,
   "compilerOptions": {
     "experimentalDecorators": true,
     "allowJs": true
@@ -27,11 +28,14 @@
     "neutrino-preset-react": "^6.0.4"
   },
   "dependencies": {
+    "mobx-react": "^7.2.1",
     "mobx-state-tree": "^5.1.0",
-    "react": "^15.6.1",
+    "pullstate": "^1.23.0",
+    "react": "^16.14.0",
     "react-async-component": "^1.0.0-beta.3",
-    "react-dom": "^15.6.1",
+    "react-dom": "^16.14.0",
     "react-hot-loader": "3.0.0-beta.7",
+    "react-mobx": "^0.0.4",
     "react-redux": "^4.4.1",
     "react-router-dom": "^4.1.1"
   }
